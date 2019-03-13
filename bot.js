@@ -29,7 +29,7 @@ client.on('message', message => {
 
 client.on('message', message => {
     if(message.content === '-ريب'){
-        message.channel.send('#credits')
+        message.channel.send('#rep @<295216776428388362>')
     }
 });
 
@@ -47,34 +47,33 @@ client2.on('message', message => {
 
 client2.on('message', message => {
     if(message.content === '-ريب'){
-        message.channel.send('#credits')
+        message.channel.send('#rep @<295216776428388362>')
     }
 });
 
 client.on('message', message => {
     if(message.content === '-تحويل'){
-        message.channel.send('#credits @! Ma, Drakola - ♪ ,?#3451 150000')
+        message.channel.send('#credits @<295216776428388362> 150000')
     }
 });
 
 client.on('message', message => {
     if(message.content === '-تحويل'){
-        message.channel.send('#credits @! Ma, Drakola - ♪ ,?#3451 150000')
+        message.channel.send('#credits @<295216776428388362> 150000')
     }
 });
 
 client2.on('message', message => {
     if(message.content === '-تحويل'){
-        message.channel.send('#credits @! Ma, Drakola - ♪ ,?#3451 150000')
+        message.channel.send('#credits @<295216776428388362> 150000')
     }
 });
 
 client2.on('message', message => {
     if(message.content === '-تحويل'){
-        message.channel.send('#credits @! Ma, Drakola - ♪ ,?#3451 150000')
+        message.channel.send('#credits @<295216776428388362> 150000')
     }
 });
-
 
 client.on('message', message => { // لا تغير شئ عشان ما تخرب الدنيا
 if (message.content === '!spam') {
