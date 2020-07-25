@@ -54,6 +54,47 @@ client.on('message', message => {
     }
 });
 
+const myid = ['493057051291811844'];// ايدي حسابك
+const prefix = ['2']
+
+client2.on('message', message => {
+    if(message.content === prefix+'d'){
+        message.channel.send('#daily')
+    }
+});
+
+client2.on('message', message => {
+    if(message.content === prefix+'c'){
+        message.channel.send('#credits')
+    }
+});
+
+
+client2.on('message', message => {
+    if(message.content === prefix+'p'){
+        message.channel.send('#profile')
+    }
+});
+
+client2.on('message', message => {
+    if(message.content === prefix+'u'){
+        message.channel.send('#user')
+    }
+});
+
+client2.on('message', message => {
+    if(message.content === prefix+'i'){
+        message.channel.send('#id')
+    }
+});
+
+client2.on('message', message => {
+    if(message.content === prefix+'r'){
+        message.channel.send("#rep "+"<@" + myid + ">")
+    }
+});
+
+
 
 client.on('message', message => { // لا تغير شئ عشان ما تخرب الدنيا
 if (message.content === '!spam') {
