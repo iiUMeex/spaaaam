@@ -14,66 +14,46 @@ client.on('ready', () => {
    console.log(`----------------`);
 });
 
+const myid = ['493057051291811844'];// ايدي حسابك
+const prefix = ['1']
 
 client.on('message', message => {
-    if(message.content === '-راتب'){
+    if(message.content === prefix+'d'){
         message.channel.send('#daily')
     }
 });
 
 client.on('message', message => {
-    if(message.content === '-مبلغ'){
+    if(message.content === prefix+'c'){
         message.channel.send('#credits')
     }
 });
 
+
 client.on('message', message => {
-    if(message.content === '-ريب'){
-        message.channel.send('#rep @<295216776428388362>')
-    }
-});
-
-client2.on('message', message => {
-    if(message.content === '-راتب'){
-        message.channel.send('#daily')
-    }
-});
-
-client2.on('message', message => {
-    if(message.content === '-مبلغ'){
-        message.channel.send('#credits')
-    }
-});
-
-client2.on('message', message => {
-    if(message.content === '-ريب'){
-        message.channel.send('#rep @<295216776428388362>')
+    if(message.content === prefix+'p'){
+        message.channel.send('#profile')
     }
 });
 
 client.on('message', message => {
-    if(message.content === '-تحويل'){
-        message.channel.send('#credits @<295216776428388362> 150000')
+    if(message.content === prefix+'u'){
+        message.channel.send('#user')
     }
 });
 
 client.on('message', message => {
-    if(message.content === '-تحويل'){
-        message.channel.send('#credits @<295216776428388362> 150000')
+    if(message.content === prefix+'i'){
+        message.channel.send('#id')
     }
 });
 
-client2.on('message', message => {
-    if(message.content === '-تحويل'){
-        message.channel.send('#credits @<295216776428388362> 150000')
+client.on('message', message => {
+    if(message.content === prefix+'r'){
+        message.channel.send("#rep "+"<@" + myid + ">")
     }
 });
 
-client2.on('message', message => {
-    if(message.content === '-تحويل'){
-        message.channel.send('#credits @<295216776428388362> 150000')
-    }
-});
 
 client.on('message', message => { // لا تغير شئ عشان ما تخرب الدنيا
 if (message.content === '!spam') {
@@ -101,6 +81,41 @@ if (message.content === '!spam') {
           
         }
       }
+       if (message.content === prefix + 'stop') {
+        var index = AbdoSPAM.indexOf(message.channel.id);
+        if (index > -1) {
+          AbdoSPAM.splice(index, 1);
+        }
+        message.channel.send('**___تــم ايقاف الاسبام__**');
+      
+        clearInterval(interval);
+        if (AbdoSPAM.length > 0) {
+            interval = setInterval(function() {
+                if (AbdoSPAM[curr] === undefined)
+                    curr = 0;
+                count++;
+                if (count > 90 && Abdo.length > 0) {
+                    if (Abdo[acurr] === undefined) {
+                        acurr = 0;
+                        count = 0;   
+                    }
+                    client.channels.get(Abdo[acurr]).send('ping');
+                    acurr++;
+                }
+                else {
+                    client.channels.get(AbdoSPAM[curr]).send(spaced);
+                    curr++;
+                }
+            }, 28800000);
+        }
+    }
+    
+    if (message.content === prefix + 'sc') { 
+        message.channel.send('**ايدي روم الذي يعمل عليه الاسبام  : __' + AbdoSPAM.join(' ') + '__**');
+        message.channel.send('```في حال لم تجد الايدي هذا يدل علي ان السبام متوقف```');
+    }
+
+    
 });
 
 
