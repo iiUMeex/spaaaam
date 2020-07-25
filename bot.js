@@ -54,8 +54,8 @@ client.on('message', message => {
     }
 });
 
-const myid = ['493057051291811844'];// ايدي حسابك
-const prefix = ['2']
+const myid2 = ['493057051291811844'];// ايدي حسابك
+const prefix2 = ['2']
 
 client2.on('message', message => {
     if(message.content === prefix+'d'){
@@ -105,9 +105,44 @@ if (message.content === '!spam') {
           .then(m => {
             count++;
           })
-          
-        }
+         
+           }
       }
+         
+                 if (message.content === prefix2 + 'stop') {
+        var index = AbdoSPAM.indexOf(message.channel.id);
+        if (index > -1) {
+          AbdoSPAM.splice(index, 1);
+        }
+        message.channel.send('**___تــم ايقاف الاسبام__**');
+      
+        clearInterval(interval);
+        if (AbdoSPAM.length > 0) {
+            interval = setInterval(function() {
+                if (AbdoSPAM[curr] === undefined)
+                    curr = 0;
+                count++;
+                if (count > 90 && Abdo.length > 0) {
+                    if (Abdo[acurr] === undefined) {
+                        acurr = 0;
+                        count = 0;   
+                    }
+                    client.channels.get(Abdo[acurr]).send('ping');
+                    acurr++;
+                }
+                else {
+                    client.channels.get(AbdoSPAM[curr]).send(spaced);
+                    curr++;
+                }
+            }, 28800000);
+        }
+    }
+    
+    if (message.content === prefix + 'sc') { 
+        message.channel.send('**ايدي روم الذي يعمل عليه الاسبام  : __' + AbdoSPAM.join(' ') + '__**');
+        message.channel.send('```في حال لم تجد الايدي هذا يدل علي ان السبام متوقف```');
+    }
+
 });
 
 client2.on('message', message => { // لا تغير شئ عشان ما تخرب الدنيا
